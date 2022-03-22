@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 )
@@ -29,6 +30,7 @@ type ImpotSource struct {
 }
 
 func main() {
+	fmt.Print()
 	for _, canton := range getCantons() {
 		create_json_file(canton)
 	}
@@ -38,8 +40,7 @@ func create_json_file(canton string) {
 	for _, bareme := range getBareme() {
 
 		for _, nbEnfants := range getNbEnfants() {
-
-			textFile := "./tar2021txt/tar21" + canton + ".txt"
+			textFile := "./Formatter/rawData/tar2021txt/tar21" + canton + ".txt"
 			f, err := os.Open(textFile)
 
 			if err != nil {
@@ -81,7 +82,7 @@ func create_json_file(canton string) {
 					return
 				}
 
-				jsonFile, err := os.Create("./jsonData/" + canton + bareme + nbEnfants + ".json")
+				jsonFile, err := os.Create("./Formatter/jsonData/" + canton + bareme + nbEnfants + ".json")
 
 				if err != nil {
 					log.Fatal(err)

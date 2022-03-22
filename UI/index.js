@@ -332,7 +332,7 @@ async function calculate() {
 	bareme = data.canton + bareme
 
 	try {
-		let baremeFileResponse = await fetch(`./jsonData/${bareme}.json`)
+		let baremeFileResponse = await fetch(`./../Formatter/jsonData/${bareme}.json`)
 		let baremeFile = await baremeFileResponse.json()
 
 		let impot = baremeFile.filter(
@@ -372,7 +372,7 @@ function validateForm() {
 	return data.salaireBrut !== "" && parseInt(data.age) >= 16
 }
 
-// var data = {
+// var jsonData = {
 // 	salaireBrut: "",
 // 	situation: "celib",
 // 	conjointTravaille = "oui",
