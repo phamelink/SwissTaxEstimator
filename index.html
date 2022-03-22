@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="ISO-8859-1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" type="text/css" href="./style.css" />
+		<title>Calculateur de salaire</title>
+	</head>
+	<body>
+		<label for="salaireBrut">Salaire brut mensuel:</label><br />
+		<input
+			type="number"
+			name="salaireBrut"
+			id="salaireBrut"
+			onkeyup="handleSalaireBrut(value)"
+		/><br />
+
+		<div id="13eme-container">
+			<label for="13eme">Vous avez un 13ème salaire ?</label><br />
+			<input
+				type="checkbox"
+				name="13eme"
+				id="13eme"
+				value="false"
+				onclick="handle13eme()"
+			/><br />
+		</div>
+
+		<label for="age">Votre âge?</label><br />
+		<input
+			type="number"
+			id="age"
+			name="age"
+			min="16"
+			step="1"
+			onkeyup="handleAge(value)"
+		/><br />
+
+		<div id="situation-container">
+			<label for="situation">Situation personnelle</label><br />
+			
+			<input type="radio" 
+				name="situation"
+				value="celib"
+				checked
+				onchange="handleSituation(value)">
+				Célibataire
+			</input>
+
+			<input type="radio" 
+				name="situation"
+				value="marie"
+			
+				onchange="handleSituation(value)">
+					Mariée
+			</input>
+		</div>
+
+		<label for="nbrEnfant">Nombre d'enfants: </label><br />
+		<select name="nbrEnfant" onchange="handleChildBDinput(value)">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br />
+
+		<div id="date-naissance-container"></div>
+
+		<label for="canton">Canton dans lequel vous travaillez</label><br />
+		<select name="canton" onchange="handleCanton(value)">
+			<option value="ar">Appenzell Rhodes-Extérieures</option>
+			<option value="ai">Appenzell Rhodes-Intérieures</option>
+			<option value="ag">Argovie</option>
+			<option value="bl">Bâle-campagne</option>
+			<option value="bs">Bâle-ville</option>
+			<option value="be">Berne</option>
+			<option value="fr">Fribourg</option> 
+			<option value="ge" selected>Genève</option>
+			<!-- <option value="gl">Glaris</option>
+			<option value="gr">Grisons</option>
+			<option value="ju">Jura</option>
+			<option value="lu">Lucerne</option>
+			<option value="ne">Neuchâtel</option>
+			<option value="nw">Nidwald</option>
+			<option value="ow">Obwald</option>
+			<option value="sg">Saint-Gall</option>
+			<option value="sh">Schaffouse</option>
+			<option value="sz">Schwytz</option>
+			<option value="so">Soleure</option>
+			<option value="ti">Tessin</option>
+			<option value="tg">Thurgovie</option>
+			<option value="ur">Uri</option>
+			<option value="vs">Valais</option>
+			<option value="vd">Vaud</option>
+			<option value="zg">Zoug</option>
+			<option value="zh">Zurich</option> --></select
+		><br />
+		<button onclick="calculate()">Calculer</button>
+	</body>
+	<script src="./index.js"></script>
+</html>
